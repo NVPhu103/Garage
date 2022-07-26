@@ -42,8 +42,8 @@ public class Bill {
 	@Temporal(TemporalType.DATE)
 	private Date billDate;
 	
-//	@OneToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "ReCar_id")
-//	private RepairedCar repairedCar;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ReCar_id")
+	private RepairedCar repairedCar;
 	
 }

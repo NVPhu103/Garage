@@ -41,7 +41,7 @@ public class Customer {
 	@Column(name = "Cus_phone", columnDefinition = "VARCHAR(12)")
 	@Getter @Setter private String cusPhone;
 	
-//	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@Getter @Setter private List<RepairedCar> repairedCars;
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Getter @Setter private List<RepairedCar> repairedCars;
 	
 }
