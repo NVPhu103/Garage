@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Service {
+public class CarService {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long serNumber;
@@ -28,4 +28,13 @@ public class Service {
 	
 	@OneToMany(mappedBy = "service", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<RepairedCarSer> repairedCarService;
+
+	public CarService(String serName, double serPrice, String serDescription) {
+		super();
+		this.serName = serName;
+		this.serPrice = serPrice;
+		this.serDescription = serDescription;
+	}
+	
+	
 }

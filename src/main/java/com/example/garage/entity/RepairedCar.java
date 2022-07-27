@@ -52,7 +52,7 @@ public class RepairedCar {
 
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Cus_id", nullable = false) 
+	@JoinColumn(name = "Cus_id"/*, nullable = false*/) 
 	private Customer customer;
 	 
 
@@ -62,5 +62,18 @@ public class RepairedCar {
 
 	@OneToMany(mappedBy = "goodsCarPK.repairedCar", fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
 	private Set<GoodsCar> goodsCars;
+
+
+	public RepairedCar(LocalDateTime reCarStartingDate, String reCarDescription, String reCarType, String reCarNumber,
+			String reCarStatus) {
+		super();
+		this.reCarStartingDate = reCarStartingDate;
+		this.reCarDescription = reCarDescription;
+		this.reCarType = reCarType;
+		this.reCarNumber = reCarNumber;
+		this.reCarStatus = reCarStatus;
+	}
+	
+	
 
 }

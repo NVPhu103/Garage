@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Table(name = "repaired_car_service")
 public class RepairedCarSer {
 	
 	@EmbeddedId
@@ -31,13 +33,22 @@ public class RepairedCarSer {
 	@ManyToOne
 	@MapsId("ser_number")
 	@JoinColumn(name = "ser_number")
-	private Service service;
+	private CarService service;
 	
 	private double serPrice;
 	
 	
 	
 	
+	public RepairedCarSer(CompositePK id, double serPrice) {
+		super();
+		this.id = id;
+		this.serPrice = serPrice;
+	}
+
+
+
+
 	@Embeddable
 	@Data
 	@NoArgsConstructor
