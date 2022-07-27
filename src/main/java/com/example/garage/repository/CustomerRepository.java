@@ -1,9 +1,11 @@
 package com.example.garage.repository;
 
-import com.example.garage.entity.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.garage.entity.Customer;
+
 @Repository
-public interface GoodsRepository extends JpaRepository<Goods, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
+	
 }

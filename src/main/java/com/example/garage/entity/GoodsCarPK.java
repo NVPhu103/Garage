@@ -1,6 +1,8 @@
 package com.example.garage.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
@@ -9,6 +11,8 @@ import java.io.Serializable;
 
 @Embeddable
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class GoodsCarPK implements Serializable {
     @ManyToOne
     @JoinColumn(name = "Goods_number")
@@ -22,8 +26,8 @@ public class GoodsCarPK implements Serializable {
     public int hashCode() {
         int prime = 31;
         int result = 1;
-        result = (int) (result * prime + goods.getGoodsNumber());
-        result = (int) (result * prime + repairedCar.getReCarId());
+        result = result * prime + Long.hashCode(goods.getGoodsNumber());
+        result = result * prime + Long.hashCode(repairedCar.getReCarId());
         return result;
     }
 
