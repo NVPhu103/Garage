@@ -58,7 +58,7 @@ public class RepairedCar {
 
 	@OneToOne(mappedBy = "repairedCar", fetch = FetchType.LAZY, cascade =CascadeType.ALL) 
 	private Bill bill;
-	 
+	
 
 	@OneToMany(mappedBy = "goodsCarPK.repairedCar", fetch = FetchType.LAZY, cascade = CascadeType.ALL) 
 	private Set<GoodsCar> goodsCars;

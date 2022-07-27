@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,27 +22,28 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "repairedCars")
+@Data
 @Entity
 @Table(name = "customer")
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Cus_id", columnDefinition = "BIGINT(19)")
-	@Getter @Setter private Long cusID;
+	private Long cusID;
 	
 	@Column(name = "Cus_firstname", columnDefinition = "NVARCHAR(50)", nullable = false)
-	@Getter @Setter private String cusFirstName;
+	private String cusFirstName;
 	
 	@Column(name = "Cus_lastname", columnDefinition = "NVARCHAR(50)")
-	@Getter @Setter private String cusLastName;
+	private String cusLastName;
 	
 	@Column(name = "Cus_address", columnDefinition = "NVARCHAR(255)")
-	@Getter @Setter private String cusAddress;
+	private String cusAddress;
 	
 	@Column(name = "Cus_phone", columnDefinition = "VARCHAR(12)")
-	@Getter @Setter private String cusPhone;
+	private String cusPhone;
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@Getter @Setter private List<RepairedCar> repairedCars;
+	private List<RepairedCar> repairedCars;
 	
 }
